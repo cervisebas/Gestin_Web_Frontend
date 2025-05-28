@@ -1,0 +1,38 @@
+<div class="size-full flex justify-center">
+  <div class="flex flex-col gap-4 w-8/10 max-w-[500px] h-full py-20 items-center justify-around">
+    <img
+      class="w-7/10 max-w-[300px]"
+      src="assets/logo-simple.webp"
+      alt="Logo ISFT 194"
+    >
+
+    <div class="flex w-full flex-col mt-16 gap-4">
+      <p-iconfield>
+        <p-inputicon styleClass="pi pi-id-card" />
+        <input
+          type="text"
+          class="w-full h-[3rem]"
+          pInputText
+          placeholder="D.N.I"
+          mask="99.999.999"
+        />
+      </p-iconfield>
+      
+      <p-iconfield>
+        <p-inputicon styleClass="pi pi-key" />
+        <input
+          type="password"
+          class="w-full h-[3rem]"
+          pInputText
+          placeholder="Contraseña"
+        />
+      </p-iconfield>
+
+      <div class="w-full flex justify-center mt-10">
+        <p-button
+          label="Ingresar"
+        />
+      </div>
+    </div>
+  </div>
+</div>

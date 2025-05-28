@@ -2,8 +2,9 @@ import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeng/themes/aura';
+import { provideEnvironmentNgxMask } from "ngx-mask";
 
+import { PrimeTheme } from './common/utils/PrimeTheme';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -13,7 +14,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
-        preset: Aura,
+        preset: PrimeTheme,
         options: {
           darkModeSelector: '.none',
           ssLayer: {
@@ -22,6 +23,9 @@ export const appConfig: ApplicationConfig = {
           },
         },
       },
+    }),
+    provideEnvironmentNgxMask({
+      validation: true,
     }),
   ],
 };
