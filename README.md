@@ -1,59 +1,82 @@
-# GestinWebFrontend
+# Gestin Web (Front-End)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
+Este proyecto fue creado con el framework de Angular y el gestor de paquetes Yarn, por ende se necesitarán seguir unos pasos para preparar el entorno de desarrollo en su computadora.
 
-## Development server
+# Como preparar el entorno de desarrollo
 
-To start a local development server, run:
+## Paso 1: Instalar Node.js
+Descargar e instalar Node.js desde <a href="https://nodejs.org/es/download">**aquí**</a>
 
-```bash
-ng serve
-```
+## Paso 2: Instalar Yarn
+**Yarn** es un gestor de paquetes alternativo a NPM.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### ¿Porque usar Yarn?
+Yarn además de ser un gestor de paquetes, resuelve dependencias, es más rapido gracias al manejo de cache de los paquetes y los comandos son más faciles de entender.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### ¿Como instalar Yarn?
+Para instalar Yarn puedes elegirlo al momento de instalar Node.js, o si elegiste NPM por defecto ejecuta el siguiente comando:
 
 ```bash
-ng generate --help
+npm install --global yarn
 ```
 
-## Building
-
-To build the project run:
+## Paso 3: Clona el proyecto
+Clona este proyecto con Git con el siguiente comando:
 
 ```bash
-ng build
+git clone https://github.com/cervisebas/Gestin_Web_Frontend.git
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+_Alternativamente puedes descargar el archivo comprimido a traves de la interfaz de GitHub._
 
-## Running unit tests
+## Paso 4: Instala las dependencias del proyecto
+Una vez instalados los requerimientos y clonado el proyecto, abre una consola en el directorio del proyecto y ejecuta el siguiente comando:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+``` bash
+yarn install
+```
+
+Esto instalara las dependendencias del proyecto listadas en el archivo **package.json**.
+<br>
+_La instalación de dependencias puede demorar mucho tiempo la primera vez_
+
+# Comandos del proyecto
+
+## Ejecución del proyecto en modo desarrollo
+El siguiente comando levanta un servidor local que se actualizara ante cualquier cambio del codigo:
 
 ```bash
-ng test
+yarn start
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Si quieres abrir el servidor para probar en otros dispositivos:
 
 ```bash
-ng e2e
+yarn start --host 0.0.0.0
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
+## Empaquetado del proyecto
+Para compilar el proyecto y obtener los archivos para desplegar en un servidor hay dos opciones:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Modo desarrollo
+Este comando compila y empaqueta el codigo pero en modo desarrollo, esto sirve para pruebas internas y debuggin.
+> [!WARNING]
+> En este modo las variables utilizadas son del archivo **enviroment.ts**
+
+```bash
+yarn build
+```
+
+### Modo producción
+Este comando compila, empaqueta y minimifica el codigo en modo producción, aqui ya el codigo se vuelve seguro y el rendimiendo aumenta gracias a la minimificación.
+
+> [!TIP]
+> Este modo es el ideal para desplegar al servidor final.
+
+> [!WARNING]
+> En este modo las variables utilizadas son del archivo **enviroment.prod.ts**
+
+```bash
+yarn build --aot
+```
