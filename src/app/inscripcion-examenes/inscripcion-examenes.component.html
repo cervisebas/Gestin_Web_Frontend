@@ -1,0 +1,40 @@
+<div class="flex size-full flex-col">
+  <div class="sticky top-0 left-0 right-0 bg-[#7CFA7C] text-black p-3 text-center z-50 shadow-md">
+   <p>
+     <strong>⚠️ Seleccione las materias a las que desea inscribirse.
+      No olvide guardar los cambios antes de abandonar la página.
+    </strong></p>
+  </div>
+
+  <div class="pt-2 pb-20 px-4 flex-1 w-full items-center min-h-0 overflow-y-auto flex-col flex gap-2 space-y-4">
+    @for (exam of exams; track $index) {
+      <p-card
+        class="shadow-lg max-w-[768px] w-full"
+        styleClass="cursor-pointer hover:bg-gray-900! active:bg-gray-800!"
+        (click)="exam.selected = !exam.selected"
+      >
+        <div class="flex justify-between items-center">
+          <div>
+            <h3 class="text-lg font-semibold">
+              {{ exam.name }}
+              @if (exam.teacher) {
+                <span>({{exam.teacher}})</span>
+              }
+            </h3>
+            <p class="text-sm text-gray-600">Fecha: {{ exam.date }}</p>
+
+            @if (exam.rindeLibre) {
+              <p class="text-xs text-red-600 font-bold">Rinde libre</p>
+            }
+          </div>
+          <p-checkbox [(ngModel)]="exam.selected" binary="true"></p-checkbox>
+        </div>
+      </p-card>
+    }
+  </div>
+
+
+  <div class="fixed bottom-0 left-0 right-0 p-4 flex justify-center z-50 shadow-md">
+    <button pButton type="button" label="Submit" (click)="onSubmit()" class="w-full max-w-xs"></button>
+  </div>
+</div>

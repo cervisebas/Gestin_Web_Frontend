@@ -1,0 +1,47 @@
+<div class="flex size-full flex-col">
+  <div class="sticky top-0 left-0 right-0 bg-[#7CFA7C] text-black p-3 text-center z-50 shadow-md">
+    <p>
+      <strong>⚠️ Seleccione las materias a las que desea matricularse .
+      No olvide guardar los cambios antes de abandonar la página.</strong>
+    </p>
+  <p>
+  <strong>
+    En caso de querer anotarse de manera libre, comunicarse con la preceptoría.
+  </strong>
+  </p>
+  </div>
+
+  <div class="pt-2 pb-20 px-4 flex-1 w-full items-center min-h-0 overflow-y-auto flex-col flex gap-2">
+
+  @for (year of subjectsByYearKeys; track year) {
+    <div class="year-group w-full max-w-[768px] mx-auto mb-8">
+      <h2 class="text-xl font-bold mb-4 border-b-2 border-green-500 pb-1">
+        {{ year }}° Año - Análisis, Desarrollo y Programación de Aplicaciones.
+      </h2>
+
+      <div class="flex flex-col space-y-4">
+        @for (subject of subjectsByYear[year]; track subject.id) {
+          <p-card
+            class="subject-card shadow-lg w-full"
+            styleClass="cursor-pointer hover:bg-blue-950! active:bg-blue-950!"
+            (click)="subject.selected = !subject.selected"
+          >
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="text-lg font-semibold">{{ subject.name }}</h3>
+              </div>
+              <p-checkbox [(ngModel)]="subject.selected" binary="true"></p-checkbox>
+            </div>
+          </p-card>
+        }
+      </div>
+    </div>
+  }
+
+</div>
+
+
+  <div class="fixed bottom-0 left-0 right-0 p-4 flex justify-center z-50 shadow-md">
+    <button pButton type="button" label="Submit" (click)="onSubmit()" class="w-full max-w-xs" ></button>
+  </div>
+</div>
