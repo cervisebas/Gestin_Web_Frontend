@@ -6,22 +6,25 @@ import { InputIconModule } from 'primeng/inputicon';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
+import { TarjetaComponent } from '../custom components/tarjeta/tarjeta.component';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-profile',
   standalone: true,
   imports: [
-    InputText,
+    //TarjetaComponent, 
+    //InputText,
     FormsModule,
     ButtonModule,
     PasswordModule,
     IconFieldModule,
     InputIconModule,
-    NgxMaskDirective,
+    //NgxMaskDirective,
+    
   ],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  templateUrl: './profile.component.html',
+  styleUrl: './profile.component.scss'
 })
-export class LoginComponent {
+export class profileComponent {
 
 }
