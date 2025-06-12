@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './tarjeta.component.scss'
 })
 export class TarjetaComponent {
-
+  materia = 'Matemáticas';
+  estado = 'Aprobada';
 }
