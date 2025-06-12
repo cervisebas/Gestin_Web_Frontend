@@ -6,7 +6,7 @@ import { InputIconModule } from 'primeng/inputicon';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
-import { TarjetaComponent } from '../../common/custom components/tarjeta/tarjeta.component';
+import { TarjetaComponent } from '../../common/components/tarjeta/tarjeta.component';
 
 @Component({
   selector: 'app-profile',
