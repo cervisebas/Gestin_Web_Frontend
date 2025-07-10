@@ -1,0 +1,15 @@
+<div class="text-white rounded-lg p-[15px] h-auto w-full mb-4 shadow cursor-pointer" style="background-color: #404040;"
+  (click)="toggleDetails()">
+  <div class="flex justify-between items-center">
+    <span class="font-semibold">{{ materia }}</span>
+    <span class="font-semibold" [ngClass]="StateColors()">
+      {{ estado }}
+    </span>
+  </div>
+
+  <div class="card-content mt-4" *ngIf="showDetails">
+    <p class="text-sm text-gray-300">
+      Información adicional: fecha de examen, nota final, profesor, etc.
+    </p>
+  </div>
+</div>

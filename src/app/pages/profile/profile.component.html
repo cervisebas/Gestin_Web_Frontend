@@ -1,54 +1,45 @@
+<div class="p-6 w-full max-w-7xl mx-auto shadow-lg text-white" style="background-color: #262626;">
+
   <!-- Usuario -->
-  <div class="flex items-center justify-between mb-6">
+  <div class="flex items-center justify-between mb-2 border-b-1 border-neutral-400 pb-2">
     <div class="flex items-center space-x-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A7.966 7.966 0 0112 15c2.21 0 4.21.896 5.656 2.344M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-blue-500" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M5.121 17.804A7.966 7.966 0 0112 15c2.21 0 4.21.896 5.656 2.344M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
       </svg>
       <span class="text-blue-500 font-semibold text-lg">User</span>
     </div>
     <button>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536M9 11l3.536-3.536a2 2 0 112.828 2.828L11.828 13.828a2 2 0 01-2.828 0L9 11z" />
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-red-400" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M15.232 5.232l3.536 3.536M9 11l3.536-3.536a2 2 0 112.828 2.828L11.828 13.828a2 2 0 01-2.828 0L9 11z" />
       </svg>
     </button>
   </div>
 
   <!-- Períodos Abiertos -->
-  <h2 class="text-xl font-bold">Periodos abiertos</h2>
-  <p class="text-sm text-gray-400 mb-2">Haz clic en la tarjeta para inscribirte.</p>
-  <div class="bg-green-400 text-black font-semibold rounded-lg px-4 py-3 mb-6 text-center cursor-pointer">
-    Período de exámenes abierto
+  <div class="border-b-1 border-neutral-400 pb-2">
+    <h2 class="text-xl font-bold ">Periodos abiertos</h2>
+    <p class="text-sm text-neutral-400 mb-2">Haz clic en la tarjeta para inscribirte.</p>
+    <div class="bg-green-400 text-black font-semibold rounded-lg px-4 py-3 mb-2 text-center cursor-pointer">
+      Período de exámenes abierto
+    </div>
   </div>
+  
 
   <!-- Materias -->
-  <h2 class="text-xl font-bold mb-2">Materias</h2>
+  <h2 class="text-xl font-bold mb-8 mt-2">Materias</h2>
 
-  <!-- Materias 1º -->
-  <div class="text-sm text-gray-400 mb-1">Materias 1°</div>
-  <div class="space-y-2 mb-4">
-    <div class="bg-gray-800 rounded-lg px-4 py-2 flex justify-between items-center">
-      <span class="font-semibold">EDI III</span>
-      <span class="text-green-400 font-semibold">Aprobada</span>
-    </div>
-    <div class="bg-gray-800 rounded-lg px-4 py-2 flex justify-between items-center">
-      <span class="font-semibold">EDI III</span>
-      <span class="text-white font-semibold">Cursando</span>
-    </div>
-    <div class="bg-gray-800 rounded-lg px-4 py-2 flex justify-between items-center">
-      <span class="font-semibold">EDI III</span>
-      <span class="text-green-400 font-semibold">Aprobada</span>
-    </div>
-    <div class="bg-gray-800 rounded-lg px-4 py-2 flex justify-between items-center">
-      <span class="font-semibold">EDI III</span>
-      <span class="text-white font-semibold">Cursando</span>
-    </div>
+
+  <div *ngFor="let year of subjectsByYearKeys" class="year-group w-full max-w-[768px] mx-auto mb-8 text-neutral-400">
+    <h2 class="text-XS font-bold mb-4 border-b-1 border-neutral-400 pb-1">
+      {{ year }}° Año 
+    </h2>
+
+    <app-tarjeta *ngFor="let subject of subjectsByYear[year]" [materia]="subject.name" [estado]="subject.estado"
+      class="w-full"></app-tarjeta>
+
   </div>
-
-  <hr class="border-gray-600 mb-2" />
-
-  <!-- Materias 2º -->
-  <div class="text-sm text-gray-400 mb-1">Materias 2°</div>
-  <div class="bg-gray-800 rounded-lg px-4 py-2 flex justify-between items-center">
-    <span class="font-semibold">EDI III</span>
-    <span class="text-white font-semibold">Cursando</span>
-  </div>
+</div>
